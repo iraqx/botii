@@ -1,4 +1,5 @@
 <?php
+include('config.php');
 $validauth = urlencode ("<b>[ALERT] <i>GIVE ME VALID CARD</i></b>");
 $maintain = urlencode ("<b>[ALERT] <u>GATE ON MAINTENANCE</u>
 ~ USE ANOTHER WORKING GATES</b>");
