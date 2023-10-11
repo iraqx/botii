@@ -1,11 +1,11 @@
 <?php
 
-// Database configuration
-$servername = "eanl4i1omny740jw.cbetxkdyhwsb.us-east-1.rds.amazonaws.com";
+// Database configuration for JawsDB
+$servername = "your_jawsdb_host";
 $port = 3306; // Port number
-$username = "lnlryion8xn4tpkt";
-$password = "wc49zn9jakqvt298";
-$dbname = "wv1hxbhg505xs24y";
+$username = "your_jawsdb_username";
+$password = "your_jawsdb_password";
+$dbname = "your_jawsdb_database";
 
 // Create connection
 $conn = new mysqli($servername, $username, $password, $dbname, $port);
@@ -14,4 +14,6 @@ $conn = new mysqli($servername, $username, $password, $dbname, $port);
 if ($conn->connect_error) {
     die("Connection failed: " . $conn->connect_error);
 }
+
+// Now $conn can be used for database operations
 ?>
