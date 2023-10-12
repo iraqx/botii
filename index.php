@@ -1,5 +1,4 @@
 <?php
-include('config.php');
 $validauth = urlencode ("<b>[ALERT] <i>GIVE ME VALID CARD</i></b>");
 $maintain = urlencode ("<b>[ALERT] <u>GATE ON MAINTENANCE</u>
 ~ USE ANOTHER WORKING GATES</b>");
@@ -328,7 +327,7 @@ if(file_exists(getcwd().('/cookie.txt'))){
 define('API_KEY',$botToken);
 
  
-$link = mysqli_connect("localhost", "root", "", "demo");
+$link = mysqli_connect("db4free.net", "iraq2020x", "iraq2020","mysqlx");
  
 // Check connection
 if($link === false){
@@ -877,7 +876,7 @@ function addedgp($bin){
      }
     
 function checkrole($chatId,$message_id,$keyboard,$nopre,$gId){
-	$link = mysqli_connect("localhost", "root", "", "demo");
+	$link = mysqli_connect("db4free.net", "iraq2020x", "iraq2020","mysqlx");
     $sql = "SELECT credits FROM persons WHERE userid='$gId'";
     $result = mysqli_query($link, $sql);
     $json_array = [];
@@ -887,7 +886,7 @@ function checkrole($chatId,$message_id,$keyboard,$nopre,$gId){
     $final2 = json_encode($json_array);
     $credits = trim(strip_tags(getStr($final2, '"credits":"','"')));
 mysqli_close($link);
-$link = mysqli_connect("localhost", "root", "", "demo");
+$link = mysqli_connect("db4free.net", "iraq2020x", "iraq2020","mysqlx");
     $sql = "SELECT role FROM persons WHERE userid='$gId'";
     $result20 = mysqli_query($link, $sql);
     $json_array = [];
@@ -898,7 +897,7 @@ $link = mysqli_connect("localhost", "root", "", "demo");
     $role = trim(strip_tags(getStr($final201, '"role":"','"')));
 mysqli_close($link);
 if($role == 'MEMBER' and $credits < 5){
-$link = mysqli_connect("localhost", "root", "", "demo");
+$link = mysqli_connect("db4free.net", "iraq2020x", "iraq2020","mysqlx");
 $sql = "UPDATE persons SET role = 'USER' WHERE persons.userid='$gId'";
 $result = mysqli_query($link, $sql);
 $json_array = [];
@@ -909,7 +908,7 @@ $final = json_encode($json_array);
     $result = "<i>SORRY TO SAY THAT</i>\n <b> YOU HAVE BEEN DEMOTED TO FREE USER BECAUSE YOU DONT HAVE CREDITS NOW \n YOU CAN BUY CREDITS NOW BY HITTING /buy </b>";
   reply_to($chatId,$message_id,$keyboard,$result);
 }elseif(empty($credits)){
-$link = mysqli_connect("localhost", "root", "", "demo");
+$link = mysqli_connect("db4free.net", "iraq2020x", "iraq2020","mysqlx");
 $sql = "INSERT INTO persons (userid, role, username, credits) VALUES ('$userId', 'USER', '$username', '01')";
     $result = "<i>User Created Successfully</i>";
   reply_to($chatId,$message_id,$keyboard,$result);
@@ -929,7 +928,7 @@ $freeuser = urlencode("<b>HEY You dont have permission to use me here
 $freeuser1 = urlencode("<b>HEY You dont have permission to use me here 
 <i>take group access from <code>@r0ld3x</code> to use here</i></b>");
  
-$link = mysqli_connect("localhost", "root", "", "demo");
+$link = mysqli_connect("db4free.net", "iraq2020x", "iraq2020","mysqlx");
 $sql = "SELECT role FROM persons WHERE userid='$gId'";
 $result20 = mysqli_query($link, $sql);
 $json_array = [];
